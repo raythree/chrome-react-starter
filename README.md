@@ -27,6 +27,7 @@ gulp test
 
 
 ### Notes
-All static content and javascript that does not have npm packages gets placed in the `content` folder which is copied into the distribution. Thunk middleware is used to support asych actions with one of the buttons as an example. Both app.js and test/testReducers.js include this when creating the store.
+* All static content and javascript that does not have npm packages gets placed in the `content` folder which is copied into the distribution. Thunk middleware is used to support asych actions with one of the buttons as an example. Both app.js and test/testReducers.js include this when creating the store.
+* The `content/background.js` script set up the chrome window and sets the min/max sizes.
 
 

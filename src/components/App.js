@@ -12,6 +12,10 @@ class App extends Component {
 
   render() {
     $("[rel='tooltip']").tooltip(); // this enables bootstrap tooltips
+
+    const buttonsDisabled = this.props.app.busy ? ' disabled' : '';
+    const busyIndicator = this.props.app.busy ? <span className="glyphicon glyphicon-refresh glyphicon-spin" /> : '';
+
     const comp =
       <div>
         <div className="row">
@@ -22,15 +26,27 @@ class App extends Component {
         </div>
 
         <div className="row">
-          <div className="col-md-4">
-            <button className="btn btn-default">Say Hello</button>
+          <div className="col-md-12">
+            <div style={{display: 'inline-block', margin: '10px'}}>
+              <button className="btn btn-default" onClick={this.props.sayHello} disabled={buttonsDisabled}>
+                Say Hello
+              </button>
+            </div>
+            <div style={{display: 'inline-block', margin: '10px'}}>
+              <button className="btn btn-default" onClick={this.props.sayGoodBye} disabled={buttonsDisabled}>
+                Say Goodbye
+              </button>
+            </div>
+            <div style={{display: 'inline-block', margin: '10px'}}>
+              <button disabled={ buttonsDisabled } className={'btn btn-default'} onClick={this.props.asyncSayHello}>
+                  Say Hello Asynch
+              </button> {busyIndicator}
+            </div>
           </div>
-          <div className="col-md-4">
-            <button className="btn btn-default">Say Goodbye</button>
-          </div>
-          <div className="col-md-4">
-            <button className="btn btn-default">Say Hello Async</button>
-          </div>
+        </div>
+
+        <div className="panel panel-default" style={{padding: '2em'}}>
+          {this.props.app.message}
         </div>
 
       </div>
@@ -47,8 +63,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return ({
     sayHello: () => { dispatch(actions.sayHello()); },
-    sayGoodBye: () => { dispatch(actions.sayGoodBye()); },
-    asyncSayHello: () => { dispatch(actions.asyncSayHello()); }
+    sayGoodBye: () => { dispatch(actions.sayGoodbye()); },
+    asyncSayHello: () => { dispatch(actions.asyncSayHello(2000)); }
   });
 }
 

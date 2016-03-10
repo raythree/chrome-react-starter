@@ -11,7 +11,7 @@ function app(state = { message: '' }, action) {
     case actions.SAY_GOODBYE:
       return { message: 'GoodBye!!!' };
     case actions.SAYING_HELLO:
-      return { message: 'Please wait...' };
+      return { message: 'Please wait...', busy: true };
     default:
       return state;
   }
