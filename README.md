@@ -5,6 +5,7 @@ This project builds a Chrome App based on React and Redux. Usage:
 ```
 git clone https://github.com/raythree/chrome-react-starter.git
 cd chrome-react-starter
+npm install
 gulp
 ```
 
