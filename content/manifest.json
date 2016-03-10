@@ -1,6 +1,6 @@
 {
-  "name": "XOOUi Passwords",
-  "description": "XOOUi secure password application.",
+  "name": "chrome-react-starter",
+  "description": "Starter Chrome App with React",
   "version": "0.1",
   "manifest_version": 2,
   "app": {
